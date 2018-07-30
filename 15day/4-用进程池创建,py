@@ -1,0 +1,18 @@
+from multiprocessing import Pool
+import time
+
+def work(msg):
+	for i in range(10):
+		time.sleep(1)
+		print('儿子%s'%msg)
+
+p = Pool(3)#最多能创建3个
+
+
+for i in range(6):
+	p.apply_async(work,(i,))#非阻塞
+	#p.apply(work,(i,))
+	print('添加一个')
+
+p.close()#关闭池子
+p.join()

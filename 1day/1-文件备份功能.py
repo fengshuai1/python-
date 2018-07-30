@@ -1,0 +1,6 @@
+f = open('2.txt','r')
+a = f.read()
+b = open('1.txt','w')
+b.write(a)
+f.close()
+b.close()
